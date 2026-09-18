@@ -21,11 +21,11 @@
             background: white; 
             padding: 30px; 
             border-radius: 20px; 
-            box-shadow: 0 8px 24px rgba(255, 182, 193, 0.4); /* Pink shadow */
+            box-shadow: 0 8px 24px rgba(255, 182, 193, 0.4); 
             border: 2px solid #ffb6c1;
         }
         h2 {
-            color: #ff69b4; /* Cute pink header */
+            color: #ff69b4; 
             font-size: 32px;
             margin-bottom: 5px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
@@ -79,7 +79,8 @@
             border-radius: 15px; 
             background: white; 
         }
-        /* Cute character placement elements */
+        
+        /* Layout placement configurations for all 4 images */
         .mascot-left {
             position: fixed;
             bottom: 20px;
@@ -87,7 +88,7 @@
             width: 120px;
             height: auto;
             z-index: 10;
-            pointer-events: none; /* Stops it from blocking clicks */
+            pointer-events: none;
         }
         .mascot-right {
             position: fixed;
@@ -96,7 +97,6 @@
             width: 120px;
             height: auto;
             z-index: 10;
-            transform: scaleX(-1); /* Flips character to face inward */
             pointer-events: none;
         }
         .mascot-header {
@@ -105,16 +105,25 @@
             vertical-align: middle;
             margin-left: 8px;
         }
+        .mascot-footer {
+            width: 100px;
+            height: auto;
+            margin-top: 15px;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Character images floating cute in the corners of your screen -->
-    <img src="image_AKRHhh.png" class="mascot-left" alt="cute character left">
-    <img src="image_AKRHhh.png" class="mascot-right" alt="cute character right">
+    <!-- Floating in the bottom left corner -->
+    <img src="images(1).jpeg" class="mascot-left" alt="Mascot 1">
+    
+    <!-- Floating in the bottom right corner -->
+    <img src="images(2).jpeg" class="mascot-right" alt="Mascot 2">
 
     <div class="container">
-        <h2>UWU PROXY <img src="image_AKRHhh.png" class="mascot-header" alt="character header"></h2>
+        <!-- Inside the top Title line -->
+        <h2>UWU PROXY <img src="images(3).jpeg" class="mascot-header" alt="Mascot 3"></h2>
         <div class="subtitle">✨ (you like bypassing network security, don't you) ✨</div>
         
         <div class="search-box">
@@ -123,17 +132,19 @@
         </div>
         
         <iframe id="proxyFrame"></iframe>
+
+        <!-- Sits down below your proxy layout window frame -->
+        <br>
+        <img src="images(4).jpeg" class="mascot-footer" alt="Mascot 4">
     </div>
 
     <script>
-        // Vercel auto-configures your API path directly to your project's main domain name
         const PROXY_BACKEND = window.location.origin + "/api/server?url=";
 
         function loadPage() {
             const targetUrl = document.getElementById('urlInput').value;
             if (!targetUrl) return alert('Please enter a URL, silly! nya~');
             
-            // Sends the request to your backend engine
             document.getElementById('proxyFrame').src = PROXY_BACKEND + encodeURIComponent(targetUrl);
         }
     </script>
